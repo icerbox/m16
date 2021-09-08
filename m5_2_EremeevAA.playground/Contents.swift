@@ -124,6 +124,7 @@ Order.findUserOrders("icer")
 // Выставляем счет по имени пользователя
 Payment.invoiceForPayment("icer")
 // Если счет не оплачен, просим оплатить
+//Bill.billPayment("icer", paid: false)
 Bill.billPayment("icer", paid: false)
 // Если счет оплачен, распечатываем чек об оплате
 Bill.billPayment("icer", paid: true)
