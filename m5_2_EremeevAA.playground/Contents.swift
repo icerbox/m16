@@ -128,3 +128,4 @@ Payment.invoiceForPayment("icer")
 Bill.billPayment("icer", paid: false)
 // Если счет оплачен, распечатываем чек об оплате
 Bill.billPayment("icer", paid: true)
+// Комментарии
