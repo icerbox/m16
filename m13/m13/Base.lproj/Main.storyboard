@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rkw-Jb-m4t">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="MB8-1T-N7n">
+            <objects>
+                <viewController id="0Ot-07-vnC" userLabel="View Controller" customClass="FirstViewController" customModule="m13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vvF-if-uqT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhb-c9-z4D">
+                                <rect key="frame" x="155.5" y="433" width="103" height="30"/>
+                                <state key="normal" title="Первый экран"/>
+                                <connections>
+                                    <action selector="FirstLevelButton1:" destination="0Ot-07-vnC" eventType="touchUpInside" id="74d-vG-Y67"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VKy-iO-pCR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nhb-c9-z4D" firstAttribute="centerX" secondItem="vvF-if-uqT" secondAttribute="centerX" id="afy-ic-QLx"/>
+                            <constraint firstItem="Nhb-c9-z4D" firstAttribute="centerY" secondItem="vvF-if-uqT" secondAttribute="centerY" id="yHv-hn-7KB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Вкладка" image="1.circle.fill" catalog="system" id="puO-Ix-gyB" userLabel="Вкладка"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyA-ZK-aMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-259" y="-1274"/>
+        </scene>
+        <!--Первая вкладка-->
+        <scene sceneID="5TA-J6-0aH">
+            <objects>
+                <tabBarController title="Первая вкладка" id="Rkw-Jb-m4t" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QXI-VO-pld">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0Ot-07-vnC" kind="relationship" relationship="viewControllers" id="aHg-xK-1WH"/>
+                        <segue destination="2vd-MD-h2S" kind="relationship" relationship="viewControllers" id="dfQ-Ls-bq8"/>
+                        <segue destination="S5b-qe-dxz" kind="relationship" relationship="viewControllers" id="mud-Dm-eSg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCT-pk-hLs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1151" y="-971"/>
+        </scene>
+        <!--Вкладка-->
+        <scene sceneID="r0V-TO-ANX">
+            <objects>
+                <navigationController id="2vd-MD-h2S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Вкладка" image="2.circle.fill" catalog="system" id="5oE-p1-zWq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ovp-EZ-db7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mv7-Zz-8bp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xke-Oo-LbP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-257" y="-598"/>
+        </scene>
+        <!--Вторая вкладка: Первый экран-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Вторая вкладка: Первый экран" customClass="SecondViewController" customModule="m13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYe-Rh-8SL">
+                                <rect key="frame" x="179" y="433" width="56" height="30"/>
+                                <state key="normal" title="Дальше"/>
+                                <connections>
+                                    <segue destination="ug4-Hk-Vjx" kind="show" id="QHq-Sw-hdk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cYe-Rh-8SL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VTQ-MA-Gbp"/>
+                            <constraint firstItem="cYe-Rh-8SL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xsx-9h-gCU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Вторая вкладка: Первый экран" id="QaL-13-4EP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="-599"/>
+        </scene>
+        <!--Вторая вкладка: Второй экран-->
+        <scene sceneID="EFz-at-HoY">
+            <objects>
+                <viewController id="ug4-Hk-Vjx" customClass="SecondViewController" customModule="m13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pDn-ld-geD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siK-HF-cqf">
+                                <rect key="frame" x="132.5" y="433" width="149" height="30"/>
+                                <state key="normal" title="На первую страницу"/>
+                                <connections>
+                                    <action selector="SecondLevelButton2:" destination="ug4-Hk-Vjx" eventType="touchUpInside" id="spO-EY-nfL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7KM-NN-OiA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="siK-HF-cqf" firstAttribute="centerX" secondItem="pDn-ld-geD" secondAttribute="centerX" id="6Yf-7m-Ouq"/>
+                            <constraint firstItem="siK-HF-cqf" firstAttribute="centerY" secondItem="pDn-ld-geD" secondAttribute="centerY" id="iXB-3e-e7Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Вторая вкладка: Второй экран" id="eOv-34-zjJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dlq-0Q-AD4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1330" y="-599"/>
+        </scene>
+        <!--Вкладка-->
+        <scene sceneID="SWc-mh-sET">
+            <objects>
+                <navigationController id="S5b-qe-dxz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Вкладка" image="3.circle.fill" catalog="system" id="Mqe-7b-MGF"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hbw-Cr-eQO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rNx-Ua-jF6" kind="relationship" relationship="rootViewController" id="1Gm-3k-q0W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xou-ka-Uxu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-257" y="72"/>
+        </scene>
+        <!--Третья вкладка: Первый экран-->
+        <scene sceneID="qza-sY-8bE">
+            <objects>
+                <viewController id="rNx-Ua-jF6" customClass="ThirdViewController" customModule="m13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Psh-wf-HJn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuB-af-oxe">
+                                <rect key="frame" x="179" y="433" width="56" height="30"/>
+                                <state key="normal" title="Дальше"/>
+                                <connections>
+                                    <segue destination="Hdw-Ks-wpe" kind="show" id="ag8-cw-N36"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZvR-2z-xx0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MuB-af-oxe" firstAttribute="centerY" secondItem="Psh-wf-HJn" secondAttribute="centerY" id="Zt7-xP-owk"/>
+                            <constraint firstItem="MuB-af-oxe" firstAttribute="centerX" secondItem="Psh-wf-HJn" secondAttribute="centerX" id="rOl-2j-tgT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Третья вкладка: Первый экран" id="J9w-dD-bUv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LR6-za-ong" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="72"/>
+        </scene>
+        <!--Третья вкладка: Второй экран-->
+        <scene sceneID="UmU-fE-7mv">
+            <objects>
+                <viewController id="Hdw-Ks-wpe" customClass="ThirdViewController" customModule="m13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d3m-WB-Tkx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCu-Fd-Zqs">
+                                <rect key="frame" x="179" y="433" width="56" height="30"/>
+                                <state key="normal" title="Дальше"/>
+                                <connections>
+                                    <segue destination="AZq-iV-bwC" kind="show" id="lue-UU-KYX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4O7-8S-9OF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CCu-Fd-Zqs" firstAttribute="centerX" secondItem="d3m-WB-Tkx" secondAttribute="centerX" id="1uR-DY-c4E"/>
+                            <constraint firstItem="CCu-Fd-Zqs" firstAttribute="centerY" secondItem="d3m-WB-Tkx" secondAttribute="centerY" id="IdD-9L-f8c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Третья вкладка: Второй экран" id="3Vw-do-JTj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouN-f1-hCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1329" y="72"/>
+        </scene>
+        <!--Третья вкладка: Третий экран-->
+        <scene sceneID="aoN-Zj-s8w">
+            <objects>
+                <viewController id="AZq-iV-bwC" customClass="ThirdViewController" customModule="m13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AG4-23-I5U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeo-L5-dc4">
+                                <rect key="frame" x="132.5" y="433" width="149" height="30"/>
+                                <state key="normal" title="На первую страницу"/>
+                                <connections>
+                                    <action selector="ThirdLevelButton3:" destination="AZq-iV-bwC" eventType="touchUpInside" id="FVI-6W-SlV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GKZ-pv-39n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eeo-L5-dc4" firstAttribute="centerY" secondItem="AG4-23-I5U" secondAttribute="centerY" id="YSc-Ve-Tag"/>
+                            <constraint firstItem="eeo-L5-dc4" firstAttribute="centerX" secondItem="AG4-23-I5U" secondAttribute="centerX" id="k0e-pw-fUT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Третья вкладка: Третий экран" id="aaj-fK-qCE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hg-nv-RZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2117" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="2.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="3.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
