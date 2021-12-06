@@ -2,6 +2,12 @@
 //  SceneDelegate.swift
 //  m13_2
 //
+<<<<<<< HEAD
+=======
+//  Created by Андрей Антонен on 29.11.2021.
+//
+
+>>>>>>> 3baeaa6ff37d7bf042d0fde411197d6685af3507
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -15,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+<<<<<<< HEAD
         let window = UIWindow(windowScene: windowScene)
 
         let firstViewController = FirstViewController()
@@ -23,6 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = firstViewController
         self.window = window
         window.makeKeyAndVisible()
+=======
+>>>>>>> 3baeaa6ff37d7bf042d0fde411197d6685af3507
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

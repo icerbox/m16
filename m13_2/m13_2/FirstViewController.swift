@@ -1,5 +1,6 @@
 import UIKit
 
+<<<<<<< HEAD
 // Объявляем основной вьюконтроллер FirstViewController
 class FirstViewController: UIViewController {
     // Объявляем переменную для кнопки
@@ -95,3 +96,25 @@ extension FirstViewController {
         print("viewDidDisappear")
     }
 }
+=======
+class FirstViewController: ViewController {
+    override func viewDidLoad() {
+        setupViews()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLoad()
+        view.backgroundColor = .green
+        title = "Первая вкладка: Первый экран"
+    }
+    override func setupViews() {
+        nextButton.setTitle("Дальше из FirstViewController", for: .normal)
+        nextButton.setTitleColor(.black, for: .normal)
+//        nextButton.addAction(UIAction(handler: { [weak self] _ in
+//            self?.navigationController?.pushViewController(SecondViewController(), animated: true)
+//        }), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(doAlert), for: .touchUpInside)
+        view.addSubview(nextButton)
+    }
+}
+    
+>>>>>>> 3baeaa6ff37d7bf042d0fde411197d6685af3507

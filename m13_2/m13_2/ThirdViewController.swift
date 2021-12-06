@@ -1,4 +1,5 @@
 import UIKit
+<<<<<<< HEAD
 // Создаем класс на основе расширенного класса FirstViewController
 class ThirdViewController: FirstViewController {
     override func viewDidLayoutSubviews() {
@@ -40,5 +41,32 @@ class ThirdOfThirdViewController: FirstViewController {
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.addTarget(self, action: #selector(doAlert), for: .touchUpInside)
         view.addSubview(nextButton)
+=======
+
+class ThirdViewController: ViewController {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLoad()
+        view.backgroundColor = .yellow
+        title = "Третья вкладка: Первый экран"
+    }
+    
+}
+class SecondOfThirdViewController: ViewController {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLoad()
+        view.backgroundColor = .yellow
+        title = "Третья вкладка: Второй экран"
+        setupViews()
+        setupConstraints()
+    }
+}
+class ThirdOfThirdViewController: ViewController {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLoad()
+        view.backgroundColor = .yellow
+        title = "Третья вкладка: Третья экран"
+        setupViews()
+        setupConstraints()
+>>>>>>> 3baeaa6ff37d7bf042d0fde411197d6685af3507
     }
 }
