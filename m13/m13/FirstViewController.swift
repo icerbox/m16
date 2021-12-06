@@ -9,6 +9,9 @@ class FirstViewController: UIViewController {
         
     }
     @IBAction func FirstLevelButton1(_ sender: Any) {
+        doAlert()
+    }
+    func doAlert() {
         // Создаем экземпляр класса UIAlertController
         let lastPageAlert = UIAlertController(title: "Это последняя страница", message: "Вы хотите вернуться назад?", preferredStyle: UIAlertController.Style.alert)
         lastPageAlert.addAction(UIAlertAction(title: "Да", style: .default, handler: { (action: UIAlertAction!) in
