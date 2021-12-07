@@ -1,9 +1,12 @@
 import UIKit
 // Создаем класс на основе расширенного класса FirstViewController
 class SecondViewController: FirstViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Вкладка 2"
+    }
     override func viewDidLayoutSubviews() {
         view.backgroundColor = .yellow
-        title = "Вторая вкладка: Первый экран"
     }
     override func setupViews() {
         nextButton.setTitle("Дальше", for: .normal)
@@ -18,7 +21,6 @@ class SecondViewController: FirstViewController {
 class SecondOfSecondViewController: FirstViewController {
     override func viewDidLayoutSubviews() {
         view.backgroundColor = .yellow
-        title = "Вторая вкладка: Второй экран"
     }
     override func setupViews() {
         nextButton.setTitle("Дальше", for: .normal)

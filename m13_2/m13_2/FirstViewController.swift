@@ -1,22 +1,54 @@
 import UIKit
 
+// Объявляем навигационный контроллер
+class NavigationController: UINavigationController {
+    
+}
+// Объявляем класс для таббарконтроллера
+class TabBarController: UITabBarController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let firstViewController = FirstViewController()
+        let secondViewController = SecondViewController()
+        let thirdViewController = ThirdViewController()
+        
+        viewControllers = [
+            createTabBarItem(title: "Вкладка 1", image: "1.circle.fill", viewController: firstViewController),
+            createTabBarItem(title: "Вкладка 2", image: "2.circle.fill", viewController: secondViewController),
+            createTabBarItem(title: "Вкладка 3", image: "3.circle.fill", viewController: thirdViewController)
+        ]
+        func createTabBarItem(title: String, image: String, viewController: FirstViewController) -> UINavigationController {
+            // объявляем константу navCont которой назначаем вьюконтроллер FirstViewController обернутый в навигационный контроллер MainController
+            let navCont = NavigationController(rootViewController: viewController)
+            navCont.tabBarItem.title = title
+            navCont.tabBarItem.image = UIImage(systemName: image)
+            return navCont
+        }
+    }
+}
+
 // Объявляем основной вьюконтроллер FirstViewController
 class FirstViewController: UIViewController {
     // Объявляем переменную для кнопки
     var nextButton = UIButton()
 }
+
 // Делаем расширение ViewController'a
 extension FirstViewController {
     // Срабатывает после загрузки View в память
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Вкладка 1"
+        // Создаем вью для кнопки
+        setupViews()
+        // Устанавливаем констрейнты
+        setupConstraints()
         print("viewDidLoad загружен")
     }
     // Устанавливаем атрибут @objc чтобы можно было его в дальнейшем переопределить из наследуемых классов ViewController'a
     @objc func setupViews() {
-        print("setupViews")
         view.backgroundColor = .green
-        title = "Первая вкладка: Первый экран"
         nextButton.setTitle("Дальше", for: .normal)
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.addTarget(self, action: #selector(doAlert), for: .touchUpInside)
@@ -29,32 +61,7 @@ extension FirstViewController {
         nextButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         print("setupConstraints запущен")
     }
-    // Метод для создания и вывода tabBarController
-    func setupTabBar() {
-        let tabBarController = UITabBarController()
-        let firstViewController = UINavigationController(rootViewController: FirstViewController())
-        let secondViewController = UINavigationController(rootViewController: SecondViewController())
-        let thirdViewController = UINavigationController(rootViewController: ThirdViewController())
-
-        firstViewController.title = "Вкладка 1"
-        secondViewController.title = "Вкладка 2"
-        thirdViewController.title = "Вкладка 3"
-
-        tabBarController.setViewControllers([firstViewController, secondViewController, thirdViewController], animated: false)
-
-        guard let items = tabBarController.tabBar.items else {
-            return
-        }
-            // Объявляем массив с названиями изображений
-            let images = ["1.circle.fill", "2.circle.fill", "3.circle.fill"]
-            // Для каждой вкладки таббара устанавливаем изображения из массива images
-            for i in 0..<items.count {
-                items[i].image = UIImage(systemName: images[i])
-            }
-        tabBarController.modalPresentationStyle = .overCurrentContext
-        self.view.window?.rootViewController?.present(tabBarController, animated: false, completion: nil)
-        print("ТабБар загружен")
-    }
+    
     // Объявляем метод для вывода Сообщения для перехода на первую страницу
     @objc func doAlert(sender: UIButton!) {
             // Создаем экземпляр класса UIAlertController
@@ -70,28 +77,4 @@ extension FirstViewController {
             // запускаем предупреждение
             present(lastPageAlert, animated: true, completion: nil)
         }
-    
-    // Перед отображением вью на экране, создаем сабвью для кнопки и устанавливаем констрейнты
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear загружен")
-        super.viewWillAppear(animated)
-        // Создаем вью для кнопки
-        setupViews()
-        // Устанавливаем констрейнты
-        setupConstraints()
- 
-    }
-    // После отображения вью на экране, выводим табБар
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setupTabBar()
-    }
-    // Срабатывает перед тем, как вью закроется
-    override func viewWillDisappear(_ animated: Bool) {
-        print("viewWillDisappear")
-    }
-    // Срабатывает после закрытия вью
-    override func viewDidDisappear(_ animated: Bool) {
-        print("viewDidDisappear")
-    }
 }

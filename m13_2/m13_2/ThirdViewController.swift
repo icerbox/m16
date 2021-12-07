@@ -3,7 +3,7 @@ import UIKit
 class ThirdViewController: FirstViewController {
     override func viewDidLayoutSubviews() {
         view.backgroundColor = .orange
-        title = "Третья вкладка: Первый экран"
+        title = "Вкладка 3"
     }
     override func setupViews() {
         nextButton.setTitle("Дальше", for: .normal)
@@ -18,7 +18,6 @@ class ThirdViewController: FirstViewController {
 class SecondOfThirdViewController: FirstViewController {
     override func viewDidLayoutSubviews() {
         view.backgroundColor = .orange
-        title = "Третья вкладка: Второй экран"
     }
     override func setupViews() {
         nextButton.setTitle("Дальше", for: .normal)
@@ -33,7 +32,6 @@ class SecondOfThirdViewController: FirstViewController {
 class ThirdOfThirdViewController: FirstViewController {
     override func viewDidLayoutSubviews() {
         view.backgroundColor = .orange
-        title = "Третья вкладка: Третий экран"
     }
     override func setupViews() {
         nextButton.setTitle("Дальше", for: .normal)
