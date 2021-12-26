@@ -36,22 +36,13 @@ class SecondViewController: UIViewController {
         // Устанавливаем формат даты
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssZ"
         
-//        dateFormatter.calendar = Calendar(identifier: .iso8601)
-//        let date = dateFormatter.date(from: "2021-10-25T11:23:09.000Z")!
-//        let components = Calendar.current.dateComponents([.day, .month, .year], from: date)
-//        let day = components.day ?? 0
-//        let month = components.month ?? 0
-//        let year = components.year ?? 0
-//        print("\(day)-\(month)-\(year)")
-        
-        
         // Объявляем массив с типом данных Date и добавляем в нее сконвертированные данные со свойством publishedAt из массива models. Если получаем пустое значение возвращаем текущую дату
         datesFromModels = models.map { DatesRecordModel(publishedAt: dateFormatter.date(from: ($0.publishedAt)) ?? Date()) }
         // Устанавливаем новый формат даты для преобразования в строку
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         // Преобразуем данные из массива дат array в новый массив stringFromDates
         stringFromDates = datesFromModels.map { StringRecordModel(publishedAt: dateFormatter.string(from: $0.publishedAt)) }
-        // На основе массива дат datesFromModels создаем словарь который разбивает массив по датам. В качестве ключа выступает 
+        // На основе массива дат datesFromModels создаем словарь который разбивает массив по датам. В качестве ключа выступает дата, в качестве значения выступает массив элементов publishedAt
         let groupDic = Dictionary(grouping: datesFromModels) { (element) -> DateComponents in
             let date = Calendar.current.dateComponents([.day, .month, .year], from: element.publishedAt)
             return date
