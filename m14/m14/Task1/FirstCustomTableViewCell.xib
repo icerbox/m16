@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="s8S-Af-cmB" customClass="FirstCustomTableViewCell" customModule="m14" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="495" height="203"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s8S-Af-cmB" id="JBc-Tu-1va">
+                <rect key="frame" x="0.0" y="0.0" width="495" height="203"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FGn-fV-8gz">
+                        <rect key="frame" x="20" y="0.0" width="475" height="203"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8S-0Q-wzR">
+                                <rect key="frame" x="0.0" y="86.5" width="227.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-6k-7BL">
+                                <rect key="frame" x="247.5" y="86.5" width="227.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="FGn-fV-8gz" secondAttribute="bottom" id="002-zC-8h6"/>
+                    <constraint firstItem="FGn-fV-8gz" firstAttribute="leading" secondItem="JBc-Tu-1va" secondAttribute="leading" constant="20" id="U5M-45-DBf"/>
+                    <constraint firstAttribute="trailing" secondItem="FGn-fV-8gz" secondAttribute="trailing" id="qLe-EO-kDy"/>
+                    <constraint firstItem="FGn-fV-8gz" firstAttribute="top" secondItem="JBc-Tu-1va" secondAttribute="top" id="vhp-8n-Btp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="countryImage" destination="Ahf-6k-7BL" id="m6d-QU-nzs"/>
+                <outlet property="countryName" destination="D8S-0Q-wzR" id="SrU-6T-cJV"/>
+            </connections>
+            <point key="canvasLocation" x="805.07246376811599" y="25.78125"/>
+        </tableViewCell>
+        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speaker.slash.rtl" catalog="system" id="YZB-FO-anm">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <point key="canvasLocation" x="1347" y="-126"/>
+        </imageView>
+    </objects>
+    <resources>
+        <image name="speaker.slash.rtl" catalog="system" width="124" height="128"/>
+    </resources>
+</document>
