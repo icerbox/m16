@@ -41,8 +41,8 @@ class SecondCustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ viewModel: NewsRecordModel, datesModel: StringRecordModel) {
-        title.text = viewModel.title
+    func configure(_ viewModel: DictionaryRecordModel, datesModel: StringRecordModel) {
+        title.text = viewModel.nameSection
         publishedAt.text = datesModel.publishedAt
     }
     

@@ -9,7 +9,14 @@ class SecondViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.tableHeaderView = section
         return tableView
+    }()
+    
+    private lazy var section: UILabel = {
+        let label = UILabel()
+        label.text = "Table header"
+        return label
     }()
     
     override func viewDidLoad() {
@@ -43,11 +50,19 @@ class SecondViewController: UIViewController {
         // Преобразуем данные из массива дат array в новый массив stringFromDates
         stringFromDates = datesFromModels.map { StringRecordModel(publishedAt: dateFormatter.string(from: $0.publishedAt)) }
         // На основе массива дат datesFromModels создаем словарь который разбивает массив по датам. В качестве ключа выступает дата, в качестве значения выступает массив элементов publishedAt
-        let groupDic = Dictionary(grouping: datesFromModels) { (element) -> DateComponents in
-            let date = Calendar.current.dateComponents([.day, .month, .year], from: element.publishedAt)
-            return date
+        
+        let groupDic = Dictionary(grouping: datesFromModels, by: { (element: DatesRecordModel) -> Date in
+            let components = Calendar.current.dateComponents([.day, .month, .year], from: element.publishedAt)
+            let date = Calendar.current.date(from: components)
+            return date ?? Date()
+        })
+//        print(groupDic.values)
+        
+        dictionaryFromDates = groupDic.map { DictionaryRecordModel(nameSection: dateFormatter.string(from: $0.key), cells: $0.value )}
+        dictionaryFromDates.sort {
+            $0.nameSection > $1.nameSection
         }
-        print(groupDic)
+        print(dictionaryFromDates)
     }
     
     private func setupViews() {
@@ -68,12 +83,12 @@ class SecondViewController: UIViewController {
 extension SecondViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models.count
+        dictionaryFromDates.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: secondCustomTableViewCell) as? SecondCustomTableViewCell
-        let viewModel = models[indexPath.row]
+        let viewModel = dictionaryFromDates[indexPath.section]
         let datesModel = stringFromDates[indexPath.row]
         cell?.configure(viewModel, datesModel: datesModel)
         return cell ?? UITableViewCell()

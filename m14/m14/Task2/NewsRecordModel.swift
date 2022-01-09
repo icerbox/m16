@@ -14,14 +14,19 @@ struct StringRecordModel {
 }
 
 struct DictionaryRecordModel {
-    let publishedAt: String
+    let nameSection: String
+    let cells: [DatesRecordModel]
 }
+
+
+var dictionaryFromDates: [DictionaryRecordModel] = []
+
 
 var datesFromModels: [DatesRecordModel] = []
 
 var stringFromDates: [StringRecordModel] = []
 
-var dictionaryFromDates = [Date: [DatesRecordModel]]()
+
 
 let models: [NewsRecordModel] = [
     NewsRecordModel(title: "Airbus Ventures invests in Tokyo-based ispace", publishedAt: "2021-10-25T11:23:09.000Z"),
