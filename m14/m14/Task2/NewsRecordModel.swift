@@ -6,11 +6,8 @@ struct NewsRecordModel {
 }
 
 struct DatesRecordModel {
+    let title: String
     let publishedAt: Date
-}
-
-struct StringRecordModel {
-    let publishedAt: String
 }
 
 struct DictionaryRecordModel {
@@ -18,13 +15,9 @@ struct DictionaryRecordModel {
     let cells: [DatesRecordModel]
 }
 
-
-var dictionaryFromDates: [DictionaryRecordModel] = []
-
-
 var datesFromModels: [DatesRecordModel] = []
 
-var stringFromDates: [StringRecordModel] = []
+var datesFromDictionary: [DictionaryRecordModel] = []
 
 
 

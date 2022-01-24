@@ -41,9 +41,21 @@ class SecondCustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ viewModel: DictionaryRecordModel, datesModel: StringRecordModel) {
-        title.text = viewModel.nameSection
-        publishedAt.text = datesModel.publishedAt
+    func configure(_ datesModel: DatesRecordModel) {
+        // Объявляем экземпляр класса DateFormatter()
+        let dateFormatter = DateFormatter()
+        // Устанавливаем локаль
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        // Устанавливаем часовой пояс
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        // Устанавливаем формат даты
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssZ"
+        
+        // Устанавливаем новый формат даты для преобразования в строку
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        title.text = datesModel.title
+        publishedAt.text = "\(dateFormatter.string(from: datesModel.publishedAt))"
     }
     
     private func setupConstraints() {

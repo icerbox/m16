@@ -1,7 +1,6 @@
 import UIKit
 import SwiftUI
 
-
 class SecondViewController: UIViewController {
     // Объявляем константу secondCustomTableViewCell который будет использоваться как идентификатор
     let secondCustomTableViewCell = "secondCustomTableViewCell"
@@ -9,20 +8,13 @@ class SecondViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.tableHeaderView = section
         return tableView
-    }()
-    
-    private lazy var section: UILabel = {
-        let label = UILabel()
-        label.text = "Table header"
-        return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Задание 2"
-        // Do any additional setup after loading the view.
+        // Регистрируем tableView и присваиваем идентификатор
         tableView.register(SecondCustomTableViewCell.self, forCellReuseIdentifier: "secondCustomTableViewCell")
         self.tableView.rowHeight = 100
         tableView.dataSource = self
@@ -30,7 +22,6 @@ class SecondViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupDates()
-        
     }
     
     private func setupDates() {
@@ -44,11 +35,11 @@ class SecondViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssZ"
         
         // Объявляем массив с типом данных Date и добавляем в нее сконвертированные данные со свойством publishedAt из массива models. Если получаем пустое значение возвращаем текущую дату
-        datesFromModels = models.map { DatesRecordModel(publishedAt: dateFormatter.date(from: ($0.publishedAt)) ?? Date()) }
-        // Устанавливаем новый формат даты для преобразования в строку
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-        // Преобразуем данные из массива дат array в новый массив stringFromDates
-        stringFromDates = datesFromModels.map { StringRecordModel(publishedAt: dateFormatter.string(from: $0.publishedAt)) }
+        datesFromModels = models.map { DatesRecordModel(title: ($0.title), publishedAt: dateFormatter.date(from: ($0.publishedAt)) ?? Date()) }
+        
+        // Устанавливаем формат даты
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+
         // На основе массива дат datesFromModels создаем словарь который разбивает массив по датам. В качестве ключа выступает дата, в качестве значения выступает массив элементов publishedAt
         
         let groupDic = Dictionary(grouping: datesFromModels, by: { (element: DatesRecordModel) -> Date in
@@ -56,13 +47,12 @@ class SecondViewController: UIViewController {
             let date = Calendar.current.date(from: components)
             return date ?? Date()
         })
-//        print(groupDic.values)
-        
-        dictionaryFromDates = groupDic.map { DictionaryRecordModel(nameSection: dateFormatter.string(from: $0.key), cells: $0.value )}
-        dictionaryFromDates.sort {
+        // Из
+        datesFromDictionary = groupDic.map { DictionaryRecordModel(nameSection: dateFormatter.string(from: $0.key), cells: $0.value
+            )}
+        datesFromDictionary.sort {
             $0.nameSection > $1.nameSection
         }
-        print(dictionaryFromDates)
     }
     
     private func setupViews() {
@@ -81,16 +71,26 @@ class SecondViewController: UIViewController {
 }
 
 extension SecondViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dictionaryFromDates.count
+    // Устанавливаем заголовок секции как значение nameSection
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return datesFromDictionary[section].nameSection
+        }
+    // Устанавливаем количество секций в таблице
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return datesFromDictionary.count
     }
-
+    // Устанавливаем количество ячеек в каждой секции
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datesFromDictionary[section].cells.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Получаем экземпляр ячейки
         let cell = tableView.dequeueReusableCell(withIdentifier: secondCustomTableViewCell) as? SecondCustomTableViewCell
-        let viewModel = dictionaryFromDates[indexPath.section]
-        let datesModel = stringFromDates[indexPath.row]
-        cell?.configure(viewModel, datesModel: datesModel)
+        
+        let datesModel = datesFromDictionary[indexPath.section].cells[indexPath.row]
+        
+        cell?.configure(datesModel)
         return cell ?? UITableViewCell()
     }
 }
